@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.chromatic-text {
+  position: relative;
+  color: var(--text-primary);
+}
+
+.chromatic-text::before,
+.chromatic-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+}
+
+.chromatic-text::before {
+  color: #ff00ff;
+  transform: translateX(-1px);
+}
+
+.chromatic-text::after {
+  color: #00ffff;
+  transform: translateX(1px);
+}
+
+.font-syncopate {
+  font-family: 'Syncopate', sans-serif;
+}
+
+.font-space {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #18181B;
+  --text-primary: #FFFFFF;
+  --text-secondary: #D1D5DB;
+  --border-color: #27272A;
+}
+
+:root[data-theme="light"] {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F4F4F5;
+  --text-primary: #000000;
+  --text-secondary: #4B5563;
+  --border-color: #E5E7EB;
+}
