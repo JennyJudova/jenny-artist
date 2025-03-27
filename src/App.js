@@ -91,14 +91,27 @@ export class App extends LitElement {
   }
 
   getPageFromPath(path) {
-    switch (path) {
-      case '/':
-        return 'home';
-      case '/tools':
-        return 'tools';
-      default:
-        return '404';
+    // For local development, remove any base path
+    const basePath = '/jenny-artist';
+    
+    // Check if the path starts with the base path and remove it if it does
+    let cleanPath = path;
+    if (path.startsWith(basePath)) {
+      cleanPath = path.substring(basePath.length);
     }
+    
+    // If path is empty or just '/', return home
+    if (cleanPath === '' || cleanPath === '/') {
+      return 'home';
+    }
+
+    // Check for specific routes
+    if (cleanPath === '/tools') {
+      return 'tools';
+    }
+    
+    // Default to 404 for any other path
+    return '404';
   }
 
   firstUpdated() {
