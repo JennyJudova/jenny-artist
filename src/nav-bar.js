@@ -12,17 +12,21 @@ export class NavBar extends LitElement {
         z-index: 50;
       }
 
-      .mobile-menu {
+      .mobile-menu-container {
         display: none;
       }
 
+      .desktop-menu-container {
+        display: flex;
+      }
+
       @media (max-width: 768px) {
-        .desktop-menu {
+        .desktop-menu-container {
           display: none;
         }
         
-        .mobile-menu {
-          display: block;
+        .mobile-menu-container {
+          display: flex;
         }
         
         .mobile-menu-expanded {
@@ -108,7 +112,7 @@ export class NavBar extends LitElement {
           <a href="/" class="text-xl md:text-2xl font-syncopate tracking-[0.2em]" data-text="MADE WITH">MADE WITH</a>
           <div class="flex items-center">
             <!-- Desktop Menu -->
-            <div class="desktop-menu flex items-center space-x-4 md:space-x-8">
+            <div class="desktop-menu-container items-center space-x-4 md:space-x-8">
               <div class="space-x-4 md:space-x-8 text-sm font-space tracking-wider">
                 ${this.navItems.map(item => html`
                   <a 
@@ -131,7 +135,7 @@ export class NavBar extends LitElement {
             </div>
             
             <!-- Mobile Menu Button -->
-            <div class="mobile-menu flex items-center space-x-4">
+            <div class="mobile-menu-container items-center space-x-4">
               <button 
                 @click=${this.toggleTheme}
                 class="p-2 rounded-full hover:opacity-70 transition-opacity"
