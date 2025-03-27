@@ -2,6 +2,7 @@ import { LitElement, html, css, unsafeCSS } from 'lit';
 import styles from './index.css?inline';
 import './tools-page.js';
 import './nav-bar.js';
+import './not-found.js';
 
 export class App extends LitElement {
   static styles = [
@@ -58,7 +59,7 @@ export class App extends LitElement {
   constructor() {
     super();
     this.theme = 'dark';
-    this.page = window.location.pathname === '/tools' ? 'tools' : 'home';
+    this.page = this.getPageFromPath(window.location.pathname);
     this.currentProduct = 0;
     this.mobileMenuOpen = false;
     this.navItems = [
@@ -89,11 +90,22 @@ export class App extends LitElement {
     ];
   }
 
+  getPageFromPath(path) {
+    switch (path) {
+      case '/':
+        return 'home';
+      case '/tools':
+        return 'tools';
+      default:
+        return '404';
+    }
+  }
+
   firstUpdated() {
     document.documentElement.setAttribute('data-theme', this.theme);
     this.setupScrollBehavior();
     window.addEventListener('popstate', () => {
-      this.page = window.location.pathname === '/tools' ? 'tools' : 'home';
+      this.page = this.getPageFromPath(window.location.pathname);
       this.requestUpdate();
     });
     window.addEventListener('resize', () => {
@@ -153,7 +165,7 @@ export class App extends LitElement {
 
   navigate(path) {
     window.history.pushState({}, '', path);
-    this.page = path === '/tools' ? 'tools' : 'home';
+    this.page = this.getPageFromPath(path);
     window.scrollTo(0, 0);
     if (this.mobileMenuOpen) {
       this.mobileMenuOpen = false;
@@ -319,7 +331,14 @@ export class App extends LitElement {
   }
 
   render() {
-    return this.page === 'tools' ? html`<tools-page .theme=${this.theme}></tools-page>` : this.renderHome();
+    switch (this.page) {
+      case 'tools':
+        return html`<tools-page .theme=${this.theme}></tools-page>`;
+      case '404':
+        return html`<not-found .theme=${this.theme}></not-found>`;
+      default:
+        return this.renderHome();
+    }
   }
 }
 
