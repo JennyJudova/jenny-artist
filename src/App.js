@@ -72,19 +72,19 @@ export class App extends LitElement {
       {
         name: "YAK & CAMEL",
         description: "A masterpiece of natural luxury, our signature scarf combines the softness of yak wool with the lightweight warmth of camel fiber. Each piece is uniquely textured and naturally hypoallergenic.",
-        price: "$895",
+        // price: "$895",
         image: "https://images.unsplash.com/photo-1601244005535-a48d21d951ac?auto=format&fit=crop&q=80"
       },
       {
         name: "OLD SWEATER",
-        description: "Crafted from carefully selected vintage wool garments, our Old Sweater collection gives new life to timeless materials. Each piece tells a story of heritage and sustainable luxury.",
-        price: "$695",
+        description: "Crafted from carefully selected vintage cashmere garments or a sweater from your own collection. Each piece has had a life and is re-imagined as a luxury scarf. Heritage meets sustainable luxury.",
+        // price: "$695",
         image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&q=80"
       },
       {
         name: "BRITISH SHEEP",
-        description: "Sourced from heritage breeds across the British Isles, this collection celebrates traditional shepherding. The natural lanolin content creates a water-resistant finish that improves with age.",
-        price: "$795",
+        description: "This is an ongoing project. I have sourced wool from 95 sheep breeds that can be found in UK. Each sample is washed, carded and hand spun in Spitalfields City Farm.",
+        // price: "$795",
         image: "https://images.unsplash.com/photo-1511994714008-b6d68a8b32a2?auto=format&fit=crop&q=80"
       }
     ];
@@ -217,8 +217,8 @@ export class App extends LitElement {
           />
           <div class="absolute inset-0" style="background-color: var(--bg-primary); opacity: 0.5;"></div>
           <div class="relative text-center px-4">
-            <h2 class="text-3xl md:text-4xl lg:text-6xl font-syncopate mb-4 md:mb-8 chromatic-text tracking-[0.15em] md:tracking-[0.2em]" data-text="ARTISANAL">ARTISANAL</h2>
-            <p class="text-base md:text-xl font-space tracking-[0.05em] md:tracking-[0.1em] mb-8 md:mb-12" style="color: var(--text-secondary);">Hand-spun from the finest yak and camel wool</p>
+            <h2 class="text-3xl md:text-4xl lg:text-6xl font-syncopate mb-4 md:mb-8 chromatic-text tracking-[0.15em] md:tracking-[0.2em]" data-text="MADE WITH">MADE WITH</h2>
+            <p class="text-base md:text-xl font-space tracking-[0.05em] md:tracking-[0.1em] mb-8 md:mb-12" style="color: var(--text-secondary);">Hand-spun wool and salvaged luxury fibers</p>
             <a 
               href="#product" 
               class="font-space border px-6 md:px-12 py-3 md:py-4 transition-all duration-500 inline-block cursor-pointer"
@@ -235,10 +235,12 @@ export class App extends LitElement {
         <section id="story" class="py-16 md:py-32" style="background-color: var(--bg-primary);">
           <div class="container mx-auto px-4 md:px-6">
             <div class="max-w-2xl mx-auto text-center">
-              <h3 class="text-2xl md:text-3xl font-syncopate mb-8 md:mb-12 chromatic-text tracking-[0.15em]" data-text="OUR STORY">OUR STORY</h3>
+              <h3 class="text-2xl md:text-3xl font-syncopate mb-8 md:mb-12 chromatic-text tracking-[0.15em]" data-text="MY STORY">MY STORY</h3>
               <p class="text-base md:text-lg font-space leading-relaxed tracking-wide" style="color: var(--text-secondary);">
-                In the heart of the Himalayas, our artisans carefully select and hand-spin the finest yak and camel wool.
-                Each scarf is a testament to centuries-old craftsmanship, taking over 60 hours to complete.
+                Made with is an ongoing artist project by Jenny Judova. It started as a fascination with haute couture and the history of fashion. With more research, this transformed into a critical examination of contemporary fashion production, and with that came the conclusion that true luxury resides in process, provenance, and purpose.
+                <br>
+                <br>
+                Farm to runway and salvage to runway are the only responsible and innovative ways forward for high-end fashion. It's a celebration of the intimate connection between land, hands, and what we choose to wear. A resistance against disposable culture.
               </p>
             </div>
           </div>
